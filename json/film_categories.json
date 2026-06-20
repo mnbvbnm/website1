@@ -1,0 +1,924 @@
+{
+    "Fight Club": [
+        "Drama",
+        "Thriller",
+        "Psychological",
+        "1999"
+    ],
+    "Pulp Fiction": [
+        "Crime",
+        "Drama",
+        "Thriller",
+        "1994"
+    ],
+    "Forrest Gump": [
+        "Drama",
+        "Romance",
+        "Historical",
+        "1994"
+    ],
+    "The Good, the Bad and the Ugly": [
+        "Western",
+        "Adventure",
+        "Action",
+        "1966"
+    ],
+    "The Usual Suspects": [
+        "Crime",
+        "Mystery",
+        "Thriller",
+        "1995"
+    ],
+    "Saving Private Ryan": [
+        "War",
+        "Drama",
+        "Historical",
+        "1998"
+    ],
+    "The Prestige": [
+        "Mystery",
+        "Thriller",
+        "Drama",
+        "2006"
+    ],
+    "Whiplash": [
+        "Drama",
+        "Music",
+        "Psychological",
+        "2014"
+    ],
+    "Fury": [
+        "War",
+        "Action",
+        "Drama",
+        "2014"
+    ],
+    "Drive": [
+        "Crime",
+        "Thriller",
+        "Drama",
+        "2011"
+    ],
+    "The Wild Robot": [
+        "Animation",
+        "Adventure",
+        "Family",
+        "2024"
+    ],
+    "Inglourious Basterds": [
+        "War",
+        "Comedy",
+        "Drama",
+        "2009"
+    ],
+    "Never Let Go": [
+        "Horror",
+        "Mystery",
+        "Thriller",
+        "2015"
+    ],
+    "Oppenheimer": [
+        "Biography",
+        "History",
+        "Drama",
+        "2023"
+    ],
+    "Napoleon": [
+        "Biography",
+        "History",
+        "Drama",
+        "War",
+        "Action",
+        "2023"
+    ],
+    "Kingsman The Golden Circle": [
+        "Action",
+        "Adventure",
+        "Comedy",
+        "Crime",
+        "Thriller",
+        "2017"
+    ],
+    "The Hobbit- An Unexpected Journey": [
+        "Fantasy",
+        "Adventure",
+        "2012"
+    ],
+    "The Hobbit- The Desolation of Smaug": [
+        "Fantasy",
+        "Adventure",
+        "2013"
+    ],
+    "The Hobbit- The Battle of the Five Armies": [
+        "Fantasy",
+        "Adventure",
+        "Action",
+        "2014"
+    ],
+    "Interstellar": [
+        "Sci-Fi",
+        "Adventure",
+        "Action",
+        "Drama",
+        "2014"
+    ],
+    "The Lord of the Rings- The Fellowship of the Ring": [
+        "Adventure",
+        "Drama",
+        "Fantasy",
+        "2001"
+    ],
+    "The Lord of the Rings- The Two Towers": [
+        "Fantasy",
+        "Adventure",
+        "2002"
+    ],
+    "The Lord of the Rings- The Return of the King": [
+        "Fantasy",
+        "Adventure",
+        "2003"
+    ],
+    "A Quiet Place": [
+        "Horror",
+        "Sci-Fi",
+        "Mystery",
+        "Thriller",
+        "2018"
+    ],
+    "A Quiet Place II": [
+        "Horror",
+        "Sci-Fi",
+        "Mystery",
+        "Thriller",
+        "2021"
+    ],
+    "A Quiet Place -Day One": [
+        "Horror",
+        "Sci-Fi",
+        "Mystery",
+        "Thriller",
+        "2024"
+    ],
+    "La La Land": [
+        "Music",
+        "Romance",
+        "Comedy",
+        "Drama",
+        "2016"
+    ],
+    "Django Unchained": [
+        "Western",
+        "Drama",
+        "Action",
+        "2012"
+    ],
+    "500 Days of Summer": [
+        "Comedy",
+        "Drama",
+        "Romance",
+        "2009"
+    ],
+    "Five Feet Apart": [
+        "Romance",
+        "Drama",
+        "2019"
+    ],
+    "Brothers": [
+        "Drama",
+        "Thriller",
+        "War",
+        "2009"
+    ],
+    "Aquaman": [
+        "Action",
+        "Adventure",
+        "Fantasy",
+        "2018"
+    ],
+    "Goodfellas": [
+        "Crime",
+        "Drama",
+        "1990"
+    ],
+    "The Wolf of Wall Street": [
+        "Comedy",
+        "Drama",
+        "Biography",
+        "2013"
+    ],
+    "Army of Thieves": [
+        "Action",
+        "Crime",
+        "Drama",
+        "Comedy",
+        "2021"
+    ],
+    "The Hunt": [
+        "Drama",
+        "2020"
+    ],
+    "300": [
+        "Action",
+        "Adventure",
+        "Drama",
+        "Fantasy",
+        "War",
+        "2006"
+    ],
+    "300 - Rise of an Empire": [
+        "Action",
+        "Adventure",
+        "Drama",
+        "2014"
+    ],
+    "365 Days": [
+        "Drama",
+        "Romance",
+        "2020"
+    ],
+    "2012 Movie": [
+        "Action",
+        "Mystery",
+        "Thriller",
+        "Drama",
+        "2009"
+    ],
+    "A Working Man": [
+        "Action",
+        "Mystery",
+        "Thriller",
+        "2025"
+    ],
+    "American Made": [
+        "Comedy",
+        "Drama",
+        "Adventure",
+        "2017"
+    ],
+    "Diary of a Wimpy Kid I": [
+        "Kids",
+        "Family",
+        "Comedy",
+        "2010"
+    ],
+    "Diary of a Wimpy Kid II - Rodrick Rules": [
+        "Kids",
+        "Family",
+        "Comedy",
+        "2011"
+    ],
+    "Diary of a Wimpy Kid III - Dog Days": [
+        "Kids",
+        "Family",
+        "Comedy",
+        "2012"
+    ],
+    "Diary of a Wimpy Kid IV - The Long Haul": [
+        "Kids",
+        "Family",
+        "Comedy",
+        "Adventure",
+        "2017"
+    ],
+    "The Boss Baby": [
+        "Kids",
+        "Family",
+        "Comedy",
+        "Adventure",
+        "Animation",
+        "2017"
+    ],
+    "A Few Good Men": [
+        "Drama",
+        "1992"
+    ],
+    "Evil Dead Rise": [
+        "Horror",
+        "Mystery",
+        "Thriller",
+        "Fantasy",
+        "2023"
+    ],
+    "Pirates of the Caribbean I- The Curse of the Black Pearl": [
+        "Adventure",
+        "Action",
+        "Fantasy",
+        "2003"
+    ],
+    "Pirates of the Caribbean II- Dead Man's Chest": [
+        "Adventure",
+        "Action",
+        "Fantasy",
+        "2006"
+    ],
+    "Pirates of the Caribbean III- At World's End": [
+        "Adventure",
+        "Action",
+        "Fantasy",
+        "2007"
+    ],
+    "Pirates of the Caribbean IV- On Stranger Tides": [
+        "Adventure",
+        "Action",
+        "Fantasy",
+        "2011"
+    ],
+    "Pirates of the Caribbean V- Dead Men Tell No Tales": [
+        "Adventure",
+        "Action",
+        "Fantasy",
+        "2017"
+    ],
+    "Diary of a Wimpy Kid": [
+        "Kids",
+        "Family",
+        "Comedy",
+        "Animation",
+        "2021"
+    ],
+    "Diary of a Wimpy Kid - Rodrick Rules": [
+        "Kids",
+        "Family",
+        "Comedy",
+        "Animation",
+        "2022"
+    ],
+    "American Pie I": [
+        "Comedy",
+        "1999"
+    ],
+    "American Pie II": [
+        "Comedy",
+        "2001"
+    ],
+    "American Wedding": [
+        "Comedy",
+        "2003"
+    ],
+    "Black Adam": [
+        "Action",
+        "Adventure",
+        "Fantasy",
+        "2022"
+    ],
+    "Yesterday": [
+        "Romance",
+        "Comedy",
+        "Music",
+        "2019"
+    ],
+    "World War Z": [
+        "Horror",
+        "Action",
+        "Adventure",
+        "2013"
+    ],
+    "Wonder": [
+        "Drama",
+        "2017"
+    ],
+    "War of the Worlds": [
+        "Sci-Fi",
+        "Adventure",
+        "Action",
+        "2005"
+    ],
+    "Violent Night": [
+        "Holiday",
+        "Action",
+        "Comedy",
+        "2022"
+    ],
+    "Chaos Walking": [
+        "Sci-Fi",
+        "Adventure",
+        "2021"
+    ],
+    "Terrifier I": [
+        "Holiday",
+        "Horror",
+        "Mystery",
+        "Thriller",
+        "2016"
+    ],
+    "Terrifier II": [
+        "Holiday",
+        "Horror",
+        "Mystery",
+        "Thriller",
+        "2022"
+    ],
+    "Terrifier III": [
+        "Holiday",
+        "Horror",
+        "Mystery",
+        "Thriller",
+        "2024"
+    ],
+    "Silent Zone": [
+        "Horror",
+        "Mystery",
+        "Thriller",
+        "2025"
+    ],
+    "Vanilla Sky": [
+        "Fantasy",
+        "Mystery",
+        "Romance",
+        "Sci-Fi",
+        "Thriller",
+        "2001"
+    ],
+    "Valkyrie": [
+        "Drama",
+        "History",
+        "Thriller",
+        "War",
+        "2008"
+    ],
+    "Blood Diamond": [
+        "Adventure",
+        "Drama",
+        "2006"
+    ],
+    "Us": [
+        "Horror",
+        "Mystery",
+        "Thriller",
+        "2019"
+    ],
+    "Hex": [
+        "Adventure",
+        "Horror",
+        "Mystery",
+        "Thriller",
+        "2022"
+    ],
+    "Trap": [
+        "Crime",
+        "Horror",
+        "Mystery",
+        "Thriller",
+        "2024"
+    ],
+    "12 Angry Men": [
+        "Drama",
+        "1957"
+    ],
+    "The Woman King": [
+        "Action",
+        "Adventure",
+        "History",
+        "Drama",
+        "War",
+        "2022"
+    ],
+    "Catch Me If You Can": [
+        "Comedy",
+        "Drama",
+        "Crime",
+        "2002"
+    ],
+    "Civil War": [
+        "Action",
+        "War",
+        "Mystery",
+        "Thriller",
+        "Drama",
+        "2024"
+    ],
+    "Divergent": [
+        "Sci-Fi",
+        "Action",
+        "Adventure",
+        "2014"
+    ],
+    "Enola Holmes I": [
+        "Mystery",
+        "Thriller",
+        "Action",
+        "Adventure",
+        "Crime",
+        "2020"
+    ],
+    "Enola Holmes II": [
+        "Mystery",
+        "Thriller",
+        "Drama",
+        "Action",
+        "Adventure",
+        "Crime",
+        "2022"
+    ],
+    "Equilibrium": [
+        "Sci-Fi",
+        "Drama",
+        "2002"
+    ],
+    "Fall": [
+        "Mystery",
+        "Thriller",
+        "Action",
+        "2022"
+    ],
+    "Flight": [
+        "Drama",
+        "Mystery",
+        "Thriller",
+        "2012"
+    ],
+    "Get Out": [
+        "Horror",
+        "Mystery",
+        "Thriller",
+        "Comedy",
+        "2017"
+    ],
+    "The Godfather I": [
+        "Crime",
+        "Drama",
+        "Epic",
+        "1972"
+    ],
+    "The Godfather II": [
+        "Crime",
+        "Drama",
+        "Epic",
+        "1974"
+    ],
+    "The Godfather III": [
+        "Crime",
+        "Drama",
+        "1990"
+    ],
+    "Homefront": [
+        "Action",
+        "Mystery",
+        "Crime",
+        "Thriller",
+        "2013"
+    ],
+    "The Town": [
+        "Crime",
+        "Drama",
+        "Mystery",
+        "Thriller",
+        "2010"
+    ],
+    "The Pianist": [
+        "History",
+        "Drama",
+        "War",
+        "Epic",
+        "2002"
+    ],
+    "The Matrix": [
+        "Sci-Fi",
+        "Action",
+        "Mystery",
+        "Thriller",
+        "1999"
+    ],
+    "Inception": [
+        "Sci-Fi",
+        "Mystery",
+        "Thriller",
+        "Action",
+        "2010"
+    ],
+    "Life Is Beautiful": [
+        "Comedy",
+        "Drama",
+        "1997"
+    ],
+    "Love & Other Drugs": [
+        "Drama",
+        "Romance",
+        "Comedy",
+        "2010"
+    ],
+    "The Green Mile": [
+        "Drama",
+        "Fantasy",
+        "Crime",
+        "1999"
+    ],
+    "Red Notice": [
+        "Action",
+        "Comedy",
+        "Thriller",
+        "2021"
+    ],
+    "Run": [
+        "Drama",
+        "Horror",
+        "Mystery",
+        "Thriller",
+        "2020"
+    ],
+    "Train to Busan I": [
+        "Horror",
+        "Mystery",
+        "Thriller",
+        "Action",
+        "2016"
+    ],
+    "Train to Busan II - Peninsula": [
+        "Horror",
+        "Mystery",
+        "Thriller",
+        "Action",
+        "2020"
+    ],
+    "Gone Girl": [
+        "Mystery",
+        "Thriller",
+        "Crime",
+        "Drama",
+        "2014"
+    ],
+    "Gravity": [
+        "Drama",
+        "Sci-Fi",
+        "Mystery",
+        "Thriller",
+        "2013"
+    ],
+    "Top Gun I": [
+        "Action",
+        "Adventure",
+        "1986"
+    ],
+    "Top Gun II - Maverick": [
+        "Action",
+        "Adventure",
+        "2022"
+    ],
+    "The Departed": [
+        "Crime",
+        "Drama",
+        "Mystery",
+        "Thriller",
+        "2006"
+    ],
+    "The Intouchables": [
+        "Comedy",
+        "2011"
+    ],
+    "The Dark Knight I": [
+        "Action",
+        "Adventure",
+        "Fantasy",
+        "2008"
+    ],
+    "The Dark Knight Rises II": [
+        "Action",
+        "Adventure",
+        "Mystery",
+        "Thriller",
+        "Fantasy",
+        "2012"
+    ],
+    "Maleficent": [
+        "Fantasy",
+        "Adventure",
+        "Action",
+        "2014"
+    ],
+    "Dumb and Dumber I": [
+        "Comedy",
+        "1994"
+    ],
+    "Dumb and Dumber II- To": [
+        "Comedy",
+        "2014"
+    ],
+    "Million Dollar Baby": [
+        "Drama",
+        "Sport",
+        "2004"
+    ],
+    "No Country for Old Men": [
+        "Crime",
+        "Drama",
+        "Mystery",
+        "Thriller",
+        "2007"
+    ],
+    "Rush Hour I": [
+        "Action",
+        "Comedy",
+        "1998"
+    ],
+    "Rush Hour II": [
+        "Action",
+        "Comedy",
+        "2001"
+    ],
+    "Rush Hour III": [
+        "Action",
+        "Comedy",
+        "2007"
+    ],
+    "3 Idiots": [
+        "Comedy",
+        "Drama",
+        "2009"
+    ],
+    "Warfare": [
+        "Action",
+        "War",
+        "Mystery",
+        "Thriller",
+        "Drama",
+        "2025"
+    ],
+    "Safe": [
+        "Action",
+        "Mystery",
+        "Thriller",
+        "2012"
+    ],
+    "Scarface": [
+        "Crime",
+        "Drama",
+        "1983"
+    ],
+    "City Lights": [
+        "Comedy",
+        "Drama",
+        "Romance",
+        "1931"
+    ],
+    "The Gorge": [
+        "Mystery",
+        "Thriller",
+        "Action",
+        "Adventure",
+        "Horror",
+        "Romance",
+        "2025"
+    ],
+    "Nowhere": [
+        "Drama",
+        "Mystery",
+        "Thriller",
+        "2023"
+    ],
+    "Matilda": [
+        "Family",
+        "Comedy",
+        "1996"
+    ],
+    "Troy": [
+        "Adventure",
+        "War",
+        "Action",
+        "History",
+        "Drama",
+        "2004"
+    ],
+    "Salt": [
+        "Action",
+        "Mystery",
+        "Thriller",
+        "2010"
+    ],
+    "Safe House": [
+        "Action",
+        "Mystery",
+        "Thriller",
+        "2012"
+    ],
+    "The Island": [
+        "Action",
+        "Sci-Fi",
+        "2005"
+    ],
+    "The Italian Job": [
+        "Crime",
+        "Drama",
+        "Mystery",
+        "Thriller",
+        "Action",
+        "2003"
+    ],
+    "11 Rebels": [
+        "Action",
+        "Drama",
+        "History",
+        "2024"
+    ],
+    "Alpha": [
+        "Adventure",
+        "Drama",
+        "2018"
+    ],
+    "Before I Fall": [
+        "Drama",
+        "Mystery",
+        "Thriller",
+        "Fantasy",
+        "2017"
+    ],
+    "Bird Box": [
+        "Horror",
+        "Mystery",
+        "Sci-Fi",
+        "Adventure",
+        "2018"
+    ],
+    "Schindler s List": [
+        "History",
+        "Drama",
+        "Epic",
+        "1993"
+    ],
+    "Wrath of Man": [
+        "Action",
+        "Crime",
+        "Thriller",
+        "2021"
+    ],
+    "Vacation": [
+        "Adventure",
+        "Comedy",
+        "2015"
+    ],
+    "The Expendables I": [
+        "Action",
+        "Adventure",
+        "Thriller 2010"
+    ],
+    "The Expendables II": [
+        "Action",
+        "Adventure",
+        "Thriller",
+        "2012"
+    ],
+    "The Expendables III": [
+        "Action",
+        "Adventure",
+        "Comedy",
+        "Crime",
+        "Thriller",
+        "2014"
+    ],
+    "The Expendables IV": [
+        "Action",
+        "Adventure",
+        "Thriller",
+        "War",
+        "2023"
+    ],
+    "Last Shift": [
+        "Horror",
+        "Mystery",
+        "2014"
+    ],
+    "Mama": [
+        "Fantasy",
+        "Horror",
+        "thriller",
+        "2013"
+    ],
+    "F1": [
+        "Action",
+        "Drama",
+        "Sport",
+        "2025"
+    ],
+    "Weapons": [
+        "Horror",
+        "Mystery",
+        "2025"
+    ],
+    "Bang": [
+        "Action",
+        "Crime",
+        "2025"
+    ],
+    "Beast of War": [
+        "Mystery",
+        "Thriller",
+        "Horror",
+        "War",
+        "Action",
+        "2025"
+    ],
+    "Maniac": [
+        "Horror",
+        "Crime",
+        "2012"
+    ],
+    "Cargo": [
+        "Horror",
+        "Thriller",
+        "2017"
+    ],
+    "Shelter": [
+        "Action",
+        "Thriller",
+        "2026"
+    ]
+}

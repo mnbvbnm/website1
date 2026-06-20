@@ -1,0 +1,471 @@
+{
+    "Band of Brothers": [
+        "War",
+        "History",
+        "Drama",
+        "2001"
+    ],
+    "Banshee": [
+        "Crime",
+        "Action",
+        "Drama",
+        "2013"
+    ],
+    "Black Sails": [
+        "Adventure",
+        "Action",
+        "Drama",
+        "2014"
+    ],
+    "Game Of Thrones": [
+        "Fantasy",
+        "Drama",
+        "Action",
+        "2011"
+    ],
+    "The Wire": [
+        "Crime",
+        "Drama",
+        "Thriller",
+        "2002"
+    ],
+    "House Of Cards": [
+        "Political Drama",
+        "Drama",
+        "2013"
+    ],
+    "Mr Robot": [
+        "Psychological Thriller",
+        "Drama",
+        "2015"
+    ],
+    "The Penguin": [
+        "Crime",
+        "Drama",
+        "2024"
+    ],
+    "Black Snow": [
+        "Crime",
+        "Drama",
+        "Mystery",
+        "2023"
+    ],
+    "Prison Break": [
+        "Prison Drama",
+        "Action",
+        "Crime",
+        "Mystery",
+        "Thriller",
+        "Drama",
+        "2005"
+    ],
+    "Breaking Bad": [
+        "Drama",
+        "Crime",
+        "Tragedy",
+        "Epic",
+        "Drug Crime",
+        "Psychological Drama",
+        "2008"
+    ],
+    "The Witcher": [
+        "Drama",
+        "Action",
+        "Adventure",
+        "Fantasy",
+        "2019"
+    ],
+    "Iron Fist": [
+        "Drama",
+        "Action",
+        "Sci-Fi",
+        "Adventure",
+        "Crime",
+        "Fantasy",
+        "2017"
+    ],
+    "Chernobyl": [
+        "Thriller",
+        "History",
+        "Drama",
+        "Epic",
+        "2019"
+    ],
+    "The Haunting of Hill House": [
+        "Drama",
+        "Horror",
+        "Mystery",
+        "Thriller",
+        "2018"
+    ],
+    "Lost": [
+        "Adventure",
+        "Drama",
+        "Fantasy",
+        "Mystery",
+        "Sci-Fi",
+        "Thriller",
+        "2004"
+    ],
+    "Dark": [
+        "Mystery",
+        "Thriller",
+        "Crime",
+        "Drama",
+        "2017"
+    ],
+    "Narcos": [
+        "Crime",
+        "Drama",
+        "Epic",
+        "2015"
+    ],
+    "Friends": [
+        "Comedy",
+        "Romance",
+        "1994"
+    ],
+    "Succession": [
+        "Comedy",
+        "Drama",
+        "2018"
+    ],
+    "Loki": [
+        "Action",
+        "Adventure",
+        "Fantasy",
+        "Sci-Fi",
+        "2021"
+    ],
+    "Sons of Anarchy": [
+        "Crime",
+        "Drama",
+        "Gangstar",
+        "2008"
+    ],
+    "Boardwalk Empire": [
+        "Crime",
+        "Drama",
+        "Epic",
+        "2010"
+    ],
+    "Manifest": [
+        "Drama",
+        "Sci-Fi",
+        "Adventure",
+        "Mystery",
+        "Thriller",
+        "2018"
+    ],
+    "Black Bird": [
+        "Crime",
+        "Drama",
+        "Mystery",
+        "Thriller",
+        "2022"
+    ],
+    "The Vampire Diaries": [
+        "Drama",
+        "Fantasy",
+        "Horror",
+        "Romance",
+        "Mystery",
+        "2009"
+    ],
+    "Lupin": [
+        "Action",
+        "Crime",
+        "Drama",
+        "Mystery",
+        "2021"
+    ],
+    "Better Call Saul": [
+        "Drama",
+        "Crime",
+        "2015"
+    ],
+    "Hannibal": [
+        "Crime",
+        "Drama",
+        "Horror",
+        "Mystery",
+        "Thriller",
+        "2013"
+    ],
+    "Teen Wolf": [
+        "Action",
+        "Drama",
+        "Fantasy",
+        "Romance",
+        "Thriller",
+        "2011"
+    ],
+    "The 100": [
+        "Drama",
+        "Sci-Fi",
+        "Adventure",
+        "2014"
+    ],
+    "The Witcher Blood Origin": [
+        "Action",
+        "Adventure",
+        "Drama",
+        "Fantasy",
+        "Mystery",
+        "2022"
+    ],
+    "The Sopranos": [
+        "Crime",
+        "Drama",
+        "1999"
+    ],
+    "The Last Kingdom": [
+        "Action",
+        "Drama",
+        "History",
+        "2015"
+    ],
+    "The Last Dance": [
+        "Documentary",
+        "Biography",
+        "History",
+        "Sport",
+        "2020"
+    ],
+    "The Good Doctor": [
+        "Drama",
+        "2017"
+    ],
+    "The Punisher": [
+        "Drama",
+        "Action",
+        "Sci-Fi",
+        "Crime",
+        "2017"
+    ],
+    "The Night Of": [
+        "Crime",
+        "Drama",
+        "Mystery",
+        "Thriller",
+        "2016"
+    ],
+    "The Boys": [
+        "Comedy",
+        "Drama",
+        "Action",
+        "Adventure",
+        "Fantasy",
+        "2019"
+    ],
+    "Ted Lasso": [
+        "Comedy",
+        "Drama",
+        "Sport",
+        "2020"
+    ],
+    "The Blacklist": [
+        "Crime",
+        "Drama",
+        "Action",
+        "Mystery",
+        "Thriller",
+        "2013"
+    ],
+    "The Bear": [
+        "Comedy",
+        "Drama",
+        "2022"
+    ],
+    "Reacher": [
+        "Drama",
+        "Crime",
+        "Action",
+        "Thriller",
+        "2022"
+    ],
+    "Supacell": [
+        "Drama",
+        "Action",
+        "Adventure",
+        "Sci-Fi",
+        "2024"
+    ],
+    "Sherlock": [
+        "Adventure",
+        "Crime",
+        "Drama",
+        "Mystery",
+        "2010"
+    ],
+    "Squid Game": [
+        "Action",
+        "Drama",
+        "Mystery",
+        "Thriller",
+        "Korean",
+        "2021"
+    ],
+    "The Queens Gambit": [
+        "Drama",
+        "Mystery",
+        "Thriller",
+        "2020"
+    ],
+    "The Walking Dead": [
+        "Drama",
+        "Horror",
+        "Sci-Fi",
+        "2010"
+    ],
+    "Stranger Things": [
+        "Drama",
+        "Sci-Fi",
+        "Horror",
+        "Mystery",
+        "Thriller",
+        "2016"
+    ],
+    "Dexter": [
+        "Crime",
+        "Drama",
+        "Mystery",
+        "Thriller",
+        "2006"
+    ],
+    "Peaky Blinders": [
+        "History",
+        "Drama",
+        "2013"
+    ],
+    "Daredevil": [
+        "Action",
+        "Fantasy",
+        "Crime",
+        "Thriller",
+        "2015"
+    ],
+    "La casa de papel": [
+        "Action",
+        "Drama",
+        "Crime",
+        "Thriller",
+        "Mystery",
+        "2017"
+    ],
+    "From": [
+        "Horror",
+        "Sci-Fi",
+        "2022"
+    ],
+    "Ozark": [
+        "Crime",
+        "Drama",
+        "Thriller",
+        "2017",
+        "2022"
+    ],
+    "Black Mirror": [
+        "Crime",
+        "Drama",
+        "Mystery",
+        "Sci-Fi",
+        "Thriller",
+        "2011"
+    ],
+    "Cross": [
+        "Crime",
+        "Mystery",
+        "Thriller",
+        "Drama",
+        "2024"
+    ],
+    "Vikings": [
+        "War",
+        "Action",
+        "History",
+        "Adventure",
+        "Drama",
+        "2013",
+        "2020"
+    ],
+    "Tulsa King": [
+        "Crime",
+        "Drama",
+        "2022"
+    ],
+    "Lucifer": [
+        "Crime",
+        "Drama",
+        "Fantasy",
+        "2016",
+        "2021"
+    ],
+    "On Call": [
+        "Drama",
+        "Mystery",
+        "Crime",
+        "Action",
+        "2025"
+    ],
+    "Arrow": [
+        "Adventure",
+        "Drama",
+        "Crime",
+        "Sci-Fi",
+        "2012",
+        "2020"
+    ],
+    "Bodyguard": [
+        "Drama",
+        "Mystery",
+        "Thriller",
+        "2018"
+    ],
+    "Pulse": [
+        "Drama",
+        "2025"
+    ],
+    "House": [
+        "Drama",
+        "Mystery",
+        "Thriller",
+        "2004",
+        "2012"
+    ],
+    "Zero Day": [
+        "Drama",
+        "Mystery",
+        "Thriller",
+        "2025"
+    ],
+    "911- Lone Star": [
+        "Drama",
+        "2020"
+    ],
+    "Wednesday": [
+        "Comedy",
+        "Crime",
+        "Fantasy",
+        "Mystery",
+        "2022"
+    ],
+    "Sijjin": [
+        "Horror",
+        "Thriller",
+        "2023"
+    ],
+    "Suits": [
+        "Drama",
+        "Crime",
+        "Comedy",
+        "2011",
+        "2019"
+    ],
+    "The Gold": [
+        "Crime",
+        "Drama",
+        "History",
+        "2023"
+    ]
+}
