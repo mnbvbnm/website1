@@ -1,1 +1,1295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Stream Zone</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+  <style>
+    :root {
+  --bg: #080808;
+  --panel: rgba(18, 18, 18, 0.78);
+  --panel-2: #111;
+  --text: #f8f3e8;
+  --muted: #b8aa91;
+  --gold: #d6a84f;
+  --gold-2: #f0c979;
+  --danger: #e50914;
+  --border: rgba(214, 168, 79, 0.22);
+  --shadow: 0 22px 70px rgba(0,0,0,.55);
+  --radius: 22px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body[data-theme="light"] {
+  --bg: #f6f1e8;
+  --panel: rgba(255,255,255,.8);
+  --panel-2: #fff;
+  --text: #18120a;
+  --muted: #6b5c45;
+  --border: rgba(110, 75, 20, 0.18);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(214,168,79,.16), transparent 35%),
+    radial-gradient(circle at top right, rgba(160,20,20,.13), transparent 35%),
+    var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  height: 76px;
+  padding: 0 34px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(8,8,8,.72);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--border);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 900;
+  letter-spacing: .4px;
+  font-size: 1.1rem;
+  color: var(--muted);
+}
+
+.brand img {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+}
+
+.nav {
+  display: flex;
+  gap: 22px;
+  color: var(--muted);
+  font-weight: 700;
+  font-size: .92rem;
+}
+
+.nav a:hover,
+.brand:hover {
+  color: var(--gold-2);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+#theme-toggle,
+.icon-btn {
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,.04);
+  color: var(--text);
+  height: 40px;
+  border-radius: 999px;
+  padding: 0 14px;
+  cursor: pointer;
+}
+
+body[data-theme="light"] #theme-toggle,
+body[data-theme="light"] .icon-btn {
+  background: rgba(107, 92, 69, 0.08);
+  color: var(--muted);
+  border: 1px solid rgba(107, 92, 69, 0.18);
+}
+
+body[data-theme="light"] .brand {
+  color: var(--muted);
+}
+
+body[data-theme="light"] .brand:hover {
+  color: #f0c979;
+}
+
+body[data-theme="light"] #theme-toggle:hover,
+body[data-theme="light"] .icon-btn:hover {
+  background: rgba(107, 92, 69, 0.14);
+  color: #f0c979;
+}
+
+.hamburger {
+  display: none;
+  font-size: 1.35rem;
+  color: var(--gold-2);
+  cursor: pointer;
+}
+
+.page {
+  width: min(1450px, calc(100% - 36px));
+  margin: 26px auto 0;
+}
+
+.search-wrap {
+  position: relative;
+  max-width: 720px;
+  margin: 0 auto 28px;
+}
+
+.search-wrap i {
+  position: absolute;
+  top: 50%;
+  left: 18px;
+  transform: translateY(-50%);
+  color: var(--gold);
+}
+
+#search-input {
+  width: 100%;
+  height: 54px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,.055);
+  color: var(--text);
+  padding: 0 54px;
+  outline: none;
+  font-size: 1rem;
+  box-shadow: var(--shadow);
+}
+
+#search-overlay {
+  display: none;
+  position: absolute;
+  top: 64px;
+  left: 0;
+  right: 0;
+  max-height: 420px;
+  overflow: auto;
+  border: 1px solid var(--border);
+  background: rgba(13,13,13,.96);
+  backdrop-filter: blur(18px);
+  border-radius: 22px;
+  padding: 14px;
+  z-index: 999;
+  box-shadow: var(--shadow);
+  scrollbar-width: thin;
+  scrollbar-color: var(--gold) #111;
+}
+
+#search-overlay::-webkit-scrollbar {
+  width: 10px;
+}
+
+#search-overlay::-webkit-scrollbar-track {
+  background: rgba(255,255,255,0.04);
+  border-radius: 999px;
+}
+
+#search-overlay::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--gold), #8b651f);
+  border-radius: 999px;
+  border: 2px solid #111;
+}
+
+#search-overlay::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--gold-2), var(--gold));
+}
+
+.search-result {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px;
+  border-radius: 14px;
+}
+
+.search-result:hover {
+  background: rgba(214,168,79,.12);
+}
+
+.search-result img {
+  width: 54px;
+  height: 76px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.hero {
+  position: relative;
+  min-height: 520px;
+  border-radius: 30px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: #111;
+  box-shadow: var(--shadow);
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: .62;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(0,0,0,.92), rgba(0,0,0,.5), rgba(0,0,0,.15)),
+    linear-gradient(0deg, rgba(0,0,0,.82), transparent 45%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 620px;
+  padding: 74px 58px;
+}
+
+.tag {
+  display: inline-flex;
+  padding: 8px 13px;
+  border-radius: 999px;
+  background: rgba(214,168,79,.16);
+  color: var(--gold-2);
+  border: 1px solid var(--border);
+  font-weight: 900;
+  font-size: .8rem;
+  margin-bottom: 18px;
+}
+
+.hero h1 {
+  font-size: clamp(2.4rem, 6vw, 5.4rem);
+  line-height: .95;
+  margin: 0 0 16px;
+  letter-spacing: -2px;
+}
+
+.hero p {
+  color: #e6dcc8;
+  line-height: 1.7;
+  font-size: 1.05rem;
+  margin-bottom: 26px;
+}
+
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  color: var(--gold-2);
+  font-weight: 800;
+  margin-bottom: 26px;
+}
+
+.btn-row {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.primary-btn,
+.secondary-btn {
+  border: none;
+  padding: 14px 22px;
+  border-radius: 14px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.primary-btn {
+  background: var(--gold);
+  color: #130d04;
+}
+
+.secondary-btn {
+  background: rgba(255,255,255,.08);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.section {
+  margin-top: 38px;
+  scroll-margin-top: 100px;
+}
+
+.section-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.section h2 {
+  margin: 0;
+  font-size: 1.65rem;
+  letter-spacing: -.4px;
+}
+
+.section small {
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 18px;
+}
+
+.card {
+  position: relative;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 18px 45px rgba(0,0,0,.32);
+  transition: transform .22s ease, border-color .22s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(214,168,79,.65);
+}
+
+.card img {
+  width: 100%;
+  aspect-ratio: 2/3;
+  object-fit: cover;
+  display: block;
+}
+
+.card-body {
+  padding: 13px;
+}
+
+.card h3 {
+  margin: 0 0 8px;
+  font-size: .98rem;
+  line-height: 1.3;
+}
+
+.card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: .82rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+
+.featured-swiper {
+  overflow: hidden;
+  border-radius: 24px;
+  padding: 10px 0 24px;
+}
+
+.swiper-slide {
+  width: 420px !important;
+}
+
+.banner-card {
+  width: 420px;
+  height: 280px;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  background: #111;
+  box-shadow: 0 18px 45px rgba(0,0,0,.45);
+}
+
+.banner-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.banner-card .overlay {
+  position: absolute;
+  left: 50;
+  right: 0;
+  bottom: 0;
+
+  min-height: 76px;
+  padding: 34px 18px 16px;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+
+  text-align: center;
+  background: linear-gradient(
+    transparent,
+    rgba(0,0,0,.96)
+  );
+
+  color: #fff;
+  font-weight: 900;
+  font-size: 1rem;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+.main-footer {
+  margin-top: 60px;
+  border-top: 1px solid var(--border);
+  padding: 28px 0;
+  color: var(--muted);
+}
+
+.footer-content {
+  width: min(1450px, calc(100% - 36px));
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.social-icons {
+  display: flex;
+  gap: 12px;
+}
+
+.social-icons a {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid var(--border);
+}
+
+.sidebar,
+.sidebar-overlay {
+  display: none;
+}
+
+.card-skeleton {
+  height: 270px;
+  border-radius: 20px;
+  background: linear-gradient(90deg, #151515, #242424, #151515);
+  animation: pulse 1.3s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: .55; }
+  50% { opacity: 1; }
+  100% { opacity: .55; }
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #090909;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--gold), #8b651f);
+  border-radius: 999px;
+  border: 2px solid #090909;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--gold-2), var(--gold));
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--gold) #090909;
+}
+
+#backToTop {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 54px;
+  height: 54px;
+  border: none;
+  border-radius: 50%;
+  background: linear-gradient(180deg, var(--gold), #9f7427);
+  color: #111;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,.35);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: opacity .3s ease, transform .3s ease, visibility .3s;
+  z-index: 2000;
+}
+
+#backToTop.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+#backToTop:hover {
+  transform: translateY(-4px) scale(1.05);
+}
+
+body[data-theme="light"] #backToTop {
+  color: white;
+}
+
+@media (max-width: 800px) {
+  .topbar {
+    padding: 0 18px;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  #theme-toggle {
+    display: none;
+  }
+
+  .page {
+    width: 100%;
+    padding: 0 16px;
+    margin-top: 22px;
+  }
+
+  .search-wrap {
+    display: none;
+  }
+
+  .hero {
+    min-height: 480px;
+  }
+
+  .hero-content {
+    padding: 54px 24px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(135px, 1fr));
+    gap: 13px;
+  }
+
+  .featured-swiper {
+    padding: 8px 0 20px;
+    border-radius: 18px;
+  }
+
+  .swiper-slide {
+    width: calc(100vw - 32px) !important;
+  }
+
+  .banner-card {
+    width: calc(100vw - 32px);
+    height: 240px;
+    border-radius: 18px;
+  }
+
+  .banner-card .overlay {
+    min-height: 60px;
+    padding: 20px 10px 10px;
+    font-size: .85rem;
+  }
+
+  .sidebar-overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.58);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1500;
+  }
+
+  .sidebar-overlay.show {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .sidebar {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: -290px;
+    width: 280px;
+    height: 100%;
+    background: rgba(10,10,10,.96);
+    border-right: 1px solid var(--border);
+    z-index: 1600;
+    padding: 22px;
+    transition: .25s ease;
+  }
+
+  .sidebar.show {
+    left: 0;
+  }
+
+  .sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--gold-2);
+    font-weight: 900;
+    margin-bottom: 24px;
+  }
+
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .sidebar li a {
+    display: flex;
+    gap: 12px;
+    padding: 13px 8px;
+    color: var(--text);
+    border-radius: 12px;
+  }
+
+  .sidebar li a:hover {
+    background: rgba(214,168,79,.12);
+  }
+}
+
+@media (max-width: 500px) {
+
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+    min-height: 150px;
+  }
+
+  .card img {
+    width: 100%;
+    height: 92px;
+    aspect-ratio: auto;
+    object-fit: cover;
+    object-position: center;
+    flex-shrink: 0;
+  }
+
+  .card-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 6px 10px;
+    min-height: 48px;
+  }
+
+  .card h3 {
+    margin: 0;
+    font-size: .72rem;
+    line-height: 1.2;
+    text-align: center;
+    color: var(--text);
+
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+
+    min-height: 32px;
+  }
+
+  .card p {
+    display: none;
+  }
+
+}
+    .card-rating{
+  position:absolute;
+  top:10px;
+  left:10px;
+
+  display:flex;
+  align-items:center;
+  gap:6px;
+
+  padding:6px 10px;
+
+  border-radius:999px;
+
+  background:rgba(0,0,0,.82);
+  backdrop-filter:blur(8px);
+
+  color:#f0c979;
+  font-size:.78rem;
+  font-weight:800;
+
+  border:1px solid rgba(240,201,121,.25);
+
+  z-index:5;
+}
+
+.card-rating i{
+  font-size:.72rem;
+}
+.empty-history {
+  grid-column: 1 / -1;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 220px;
+  padding: 40px 20px;
+
+  text-align: center;
+
+  border: 1px dashed var(--border);
+  border-radius: 22px;
+
+  background: rgba(255,255,255,.03);
+}
+
+.empty-history i {
+  font-size: 3rem;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+
+.empty-history h3 {
+  margin: 0 0 10px;
+  font-size: 1.15rem;
+  font-weight: 800;
+}
+
+.empty-history p {
+  margin: 0;
+  max-width: 420px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.watch-progress {
+  margin-top: 10px;
+}
+
+.watch-progress-bar {
+  width: 100%;
+  height: 5px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.12);
+  overflow: hidden;
+}
+
+.watch-progress-fill {
+  height: 100%;
+  width: 35%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-2));
+}
+
+.watch-progress-text {
+  margin-top: 6px;
+  display: flex;
+  justify-content: space-between;
+  color: var(--muted);
+  font-size: .68rem;
+  font-weight: 800;
+}
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="hamburger" id="sidebar-toggle">
+      <i class="fas fa-bars"></i>
+    </div>
+
+    <a href="/" class="brand">
+      <img src="{{ url_for('static', filename='media/icon.ico') }}" alt="Logo">
+      <span>Stream Zone</span>
+    </a>
+
+    <nav class="nav">
+
+      <a href="#fil">Films</a>
+      <a href="#serie">Series</a>
+      <a href="#recent">Recently Joined</a>
+    </nav>
+
+    <div class="actions">
+      <button class="icon-btn" onclick="document.getElementById('search-input').focus()">
+        <i class="fas fa-search"></i>
+      </button>
+      <button id="theme-toggle">Theme</button>
+    </div>
+  </header>
+
+  <div id="sidebar-overlay" class="sidebar-overlay"></div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-header">
+      <span>Stream Zone</span>
+      <i class="fas fa-times close-btn" onclick="toggleSidebar()"></i>
+    </div>
+    <ul>
+      <li><a href="#fil"><i class="fas fa-film"></i> Films</a></li>
+      <li><a href="#serie"><i class="fas fa-tv"></i> Series</a></li>
+      <li><a href="#recent"><i class="fas fa-fire"></i> Recently Joined</a></li>
+    </ul>
+  </aside>
+
+  <main class="page">
+    <div class="search-wrap">
+      <i class="fas fa-search"></i>
+      <input id="search-input" type="text" placeholder="Search films or series...">
+      <div id="search-overlay"></div>
+    </div>
+
+    <section class="hero" id="hero">
+      <img id="hero-img" class="hero-bg" src="/static/media/default.png" alt="Featured">
+      <div class="hero-content">
+        <span class="tag">Featured Today</span>
+        <h1 id="hero-title">Stream Zone</h1>
+        <div class="hero-meta" id="hero-meta">
+          <span>Films</span>
+          <span>Series</span>
+          <span>Fresh Picks</span>
+        </div>
+        <p id="hero-desc">
+          Discover films and series in a cleaner cinematic library built for fast browsing.
+        </p>
+        <div class="btn-row">
+          <button class="primary-btn" id="hero-watch">
+            <i class="fas fa-play"></i> Watch Now
+          </button>
+          <button class="secondary-btn" onclick="document.getElementById('fil').scrollIntoView({behavior:'smooth'})">
+            Browse Library
+          </button>
+        </div>
+      </div>
+    </section>
+    <section id="continue-section" class="section">
+  <div class="section-head">
+    <div>
+      <h2>Continue Watching</h2>
+      <small>Pick up where you left off</small>
+    </div>
+  </div>
+
+  <div id="continue-grid" class="grid"></div>
+</section>
+    <section id="recent" class="section">
+      <div class="section-head">
+        <div>
+          <h2>Recently Joined</h2>
+          <small>Latest films and series added to the library</small>
+        </div>
+      </div>
+      <div class="featured-swiper">
+        <div class="swiper-wrapper" id="featured-swiper-wrapper"></div>
+      </div>
+    </section>
+
+    <section id="fil" class="section">
+      <div class="section-head">
+        <div>
+          <h2>Featured Films</h2>
+          <small>Hand-picked films from your catalog</small>
+        </div>
+      </div>
+      <div id="film-grid" class="grid"></div>
+      <p id="no-results-films" style="display:none;color:var(--muted);text-align:center;">No films found</p>
+    </section>
+
+    <section id="serie" class="section">
+      <div class="section-head">
+        <div>
+          <h2>Top Series</h2>
+          <small>Series ready to explore by season and episode</small>
+        </div>
+      </div>
+      <div id="series-grid" class="grid"></div>
+      <p id="no-results-series" style="display:none;color:var(--muted);text-align:center;">No series found</p>
+    </section>
+  </main>
+
+  <footer class="main-footer">
+    <div class="footer-content">
+      <p>© {{ current_year }} Stream Zone. All rights reserved.</p>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/s0q3.z?utm_source=ig_web_button_share_sheet&igsh=aTllaGIwMWZpdHRn" target="_blank" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://facebook.com/zaidalmufleh" target="_blank" aria-label="Facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://t.me/FilmAndSeriesJo" target="_blank" aria-label="Telegram">
+          <i class="fab fa-telegram-plane"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+  <button id="backToTop">
+  <i class="fas fa-chevron-up"></i>
+</button>
+  <script>
+    let allItems = [];
+
+    function setTheme(theme) {
+      document.body.dataset.theme = theme;
+      localStorage.setItem("theme", theme);
+    }
+
+    function getImage(title) {
+      const safe = title
+        .replace(/[:/\\?%*|"<>]/g, "-")
+        .replace(/\s+/g, "_")
+        .trim();
+      return `/static/media/${safe}.webp`;
+    }
+
+    function fallbackImage(img) {
+      img.onerror = null;
+      img.src = "/static/media/default.png";
+    }
+
+    document.getElementById("theme-toggle").onclick = () => {
+      const current = document.body.dataset.theme || "dark";
+      setTheme(current === "dark" ? "light" : "dark");
+    };
+
+    window.onload = async () => {
+      setTheme(localStorage.getItem("theme") || "dark");
+      await loadData();
+      setupSearch();
+      setupSidebar();
+      renderContinueWatching();
+    };
+
+    function showLoadingSkeletons() {
+      document.getElementById("featured-swiper-wrapper").innerHTML =
+        '<div class="swiper-slide card-skeleton"></div>'.repeat(8);
+
+      document.getElementById("film-grid").innerHTML =
+        '<div class="card-skeleton"></div>'.repeat(8);
+
+      document.getElementById("series-grid").innerHTML =
+        '<div class="card-skeleton"></div>'.repeat(8);
+    }
+
+    async function loadData() {
+      try {
+        showLoadingSkeletons();
+
+        const [films, series] = await Promise.all([
+          fetch("/api/films").then(res => res.json()),
+          fetch("/api/series").then(res => res.json())
+        ]);
+
+        const filmEntries = Object.entries(films);
+        const seriesEntries = Object.entries(series);
+
+        allItems = [
+          ...filmEntries.map(([title, info]) => ({ title, info, type: "film" })),
+          ...seriesEntries.map(([title, info]) => ({ title, info, type: "series" }))
+        ];
+
+        renderHero(allItems[allItems.length - 1] || allItems[0]);
+        renderFeatured([...filmEntries.slice(-10), ...seriesEntries.slice(-10)], films);
+        renderGrid(filmEntries, "film", "film-grid");
+        renderGrid(seriesEntries, "series", "series-grid");
+
+      } catch (error) {
+        console.error("Loading failed:", error);
+        document.getElementById("no-results-films").style.display = "block";
+        document.getElementById("no-results-series").style.display = "block";
+      }
+    }
+
+    function renderHero(item) {
+      if (!item) return;
+
+      const title = item.title;
+      const type = item.type;
+
+      document.getElementById("hero-img").src = getImage(title);
+      document.getElementById("hero-img").onerror = function () {
+        fallbackImage(this);
+      };
+
+      document.getElementById("hero-title").textContent = title;
+      document.getElementById("hero-meta").innerHTML = `
+        <span>${type === "film" ? "Film" : "Series"}</span>
+        <span>Recently Added</span>
+        <span>Stream Zone Pick</span>
+      `;
+
+      const details = Array.isArray(item.info) ? item.info.join(" • ") : "";
+      document.getElementById("hero-desc").textContent =
+        details || "Open this title to view details, trailer, and watching options.";
+
+      document.getElementById("hero-watch").onclick = () => {
+        window.location.href = `/${type}/${encodeURIComponent(title)}`;
+      };
+    }
+
+    function renderFeatured(items, films) {
+      const wrapper = document.getElementById("featured-swiper-wrapper");
+      wrapper.innerHTML = "";
+
+      items.reverse().forEach(([title]) => {
+        const type = films.hasOwnProperty(title) ? "film" : "series";
+
+        const slide = document.createElement("div");
+        slide.className = "swiper-slide";
+        slide.innerHTML = `
+          <div class="banner-card">
+            <img loading="lazy" src="${getImage(title)}" alt="${title}" onerror="fallbackImage(this)">
+            <div class="overlay">${title}</div>
+          </div>
+        `;
+        slide.onclick = () => {
+          window.location.href = `/${type}/${encodeURIComponent(title)}`;
+        };
+
+        wrapper.appendChild(slide);
+      });
+
+      if (window.featuredSwiper) window.featuredSwiper.destroy(true, true);
+
+window.featuredSwiper = new Swiper(".featured-swiper", {
+  grabCursor: true,
+  loop: true,
+  slidesPerView: "auto",
+  spaceBetween: 18,
+  autoplay: {
+    delay: 4500,
+    disableOnInteraction: false
+  }
+});
+    }
+
+    function renderGrid(entries, type, targetId) {
+      const grid = document.getElementById(targetId);
+      grid.innerHTML = "";
+
+      entries.reverse().forEach(([title, info]) => {
+        const card = document.createElement("div");
+        card.className = "card";
+        const rating =
+  info && typeof info === "object" && info.rating
+    ? String(info.rating)
+        .replace("⭐", "")
+        .replace("/10", "")
+        .trim()
+    : Array.isArray(info)
+      ? (info.find(x => String(x).includes("⭐")) || "")
+          .replace("⭐", "")
+          .replace("/10", "")
+          .trim()
+      : "";
+
+card.innerHTML = `
+  ${rating ? `
+    <div class="card-rating">
+      <i class="fas fa-star"></i>
+      ${rating}
+    </div>
+  ` : ""}
+
+  <img
+    loading="lazy"
+    src="${getImage(title)}"
+    alt="${title}"
+    onerror="fallbackImage(this)"
+  >
+
+  <div class="card-body">
+    <h3>${title}</h3>
+    <p>
+  ${
+    info && typeof info === "object" && !Array.isArray(info)
+      ? `${info.year || ""}${info.duration ? " • " + info.duration : ""}`
+      : Array.isArray(info)
+        ? info.join(", ")
+        : ""
+  }
+</p>
+  </div>
+`;
+
+        card.onclick = () => {
+          window.location.href = `/${type}/${encodeURIComponent(title)}`;
+        };
+
+        grid.appendChild(card);
+      });
+    }
+
+    function setupSearch() {
+      const input = document.getElementById("search-input");
+      const overlay = document.getElementById("search-overlay");
+      const mainContent = document.querySelector(".page");
+
+      input.addEventListener("input", () => {
+        const query = input.value.toLowerCase().trim();
+
+        if (!query) {
+          overlay.style.display = "none";
+          mainContent.style.filter = "none";
+          return;
+        }
+
+        const results = allItems.filter(item =>
+          item.title.toLowerCase().includes(query)
+        ).slice(0, 12);
+
+        overlay.style.display = "block";
+        mainContent.style.filter = "none";
+
+        overlay.innerHTML = results.length
+          ? results.map(item => `
+              <a class="search-result" href="/${item.type}/${encodeURIComponent(item.title)}">
+                <img src="${getImage(item.title)}" onerror="fallbackImage(this)" alt="${item.title}">
+                <div>
+                  <strong>${item.title}</strong><br>
+                  <small style="color:var(--muted);">${item.type === "film" ? "Film" : "Series"}</small>
+                </div>
+              </a>
+            `).join("")
+          : `<p style="color:var(--muted);padding:12px;">No results found.</p>`;
+      });
+
+      document.addEventListener("click", (event) => {
+        if (!input.closest(".search-wrap").contains(event.target)) {
+          overlay.style.display = "none";
+        }
+      });
+
+      input.addEventListener("focus", () => {
+        if (input.value.trim()) overlay.style.display = "block";
+      });
+    }
+
+    function toggleSidebar() {
+      const sidebar = document.getElementById("sidebar");
+      const overlay = document.getElementById("sidebar-overlay");
+      const isOpen = sidebar.classList.toggle("show");
+      overlay.classList.toggle("show", isOpen);
+      document.body.style.overflow = isOpen ? "hidden" : "";
+    }
+
+    function setupSidebar() {
+      document.getElementById("sidebar-toggle")?.addEventListener("click", toggleSidebar);
+      document.getElementById("sidebar-overlay")?.addEventListener("click", toggleSidebar);
+
+      document.querySelectorAll("#sidebar a").forEach(link => {
+        link.addEventListener("click", () => {
+          document.getElementById("sidebar").classList.remove("show");
+          document.getElementById("sidebar-overlay").classList.remove("show");
+          document.body.style.overflow = "";
+        });
+      });
+    }
+    const backToTop = document.getElementById("backToTop");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 500) {
+    backToTop.classList.add("show");
+  } else {
+    backToTop.classList.remove("show");
+  }
+});
+
+backToTop.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+});
+function renderContinueWatching() {
+  const grid = document.getElementById("continue-grid");
+  if (!grid) return;
+
+  const items = JSON.parse(localStorage.getItem("continueWatching") || "[]");
+
+  if (!items.length) {
+  grid.innerHTML = `
+    <div class="empty-history">
+      <i class="fas fa-clock"></i>
+      <h3>No Watch History Yet</h3>
+      <p>
+        Start watching films or series and they will appear here
+        for quick access later.
+      </p>
+    </div>
+  `;
+  return;
+}
+
+  grid.innerHTML = items.map(item => `
+  <div class="card" onclick="window.location.href='${item.link}'">
+    <img src="${item.image}" alt="${item.title}" onerror="fallbackImage(this)">
+
+    <div class="card-body">
+      <h3>${item.title}</h3>
+      <p>${item.subtitle || "Continue watching"}</p>
+
+      <div class="watch-progress">
+        <div class="watch-progress-bar">
+          <div class="watch-progress-fill" style="width:${item.progress || 35}%"></div>
+        </div>
+
+        <div class="watch-progress-text">
+         <span>Last watched</span>
+<span>Continue</span>
+        </div>
+      </div>
+    </div>
+  </div>
+`).join("");
+}
+  </script>
+
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+</body>
+</html>

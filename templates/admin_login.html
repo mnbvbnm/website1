@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Stream Zone Admin</title>
+
+  <style>
+    :root {
+      --bg: #080808;
+      --panel: #121212;
+      --text: #f8f3e8;
+      --muted: #aa9c84;
+      --gold: #d6a84f;
+      --gold-light: #f0c979;
+      --border: rgba(214, 168, 79, .25);
+      --danger: #ff7070;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+      display: grid;
+      place-items: center;
+      color: var(--text);
+      font-family: "Segoe UI", system-ui, sans-serif;
+      background:
+        radial-gradient(
+          circle at top left,
+          rgba(214, 168, 79, .18),
+          transparent 35%
+        ),
+        var(--bg);
+    }
+
+    .login-card {
+      width: min(430px, 100%);
+      padding: 32px;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background: rgba(18, 18, 18, .94);
+      box-shadow: 0 25px 80px rgba(0, 0, 0, .6);
+    }
+
+    .logo {
+      width: 52px;
+      height: 52px;
+      margin-bottom: 18px;
+      display: grid;
+      place-items: center;
+      border-radius: 15px;
+      color: #160f05;
+      font-weight: 1000;
+      background: linear-gradient(
+        145deg,
+        var(--gold-light),
+        #94641e
+      );
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 1.6rem;
+    }
+
+    .subtitle {
+      margin: 7px 0 25px;
+      color: var(--muted);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--gold-light);
+      font-weight: 800;
+    }
+
+    input {
+      width: 100%;
+      height: 50px;
+      padding: 0 15px;
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      outline: none;
+      color: var(--text);
+      background: #191919;
+      font: inherit;
+    }
+
+    input:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(214, 168, 79, .12);
+    }
+
+    button {
+      width: 100%;
+      height: 50px;
+      margin-top: 18px;
+      border: 0;
+      border-radius: 13px;
+      cursor: pointer;
+      color: #160f05;
+      font-weight: 900;
+      background: linear-gradient(
+        180deg,
+        var(--gold-light),
+        #a67525
+      );
+    }
+
+    .message {
+      margin-bottom: 18px;
+      padding: 12px;
+      border-radius: 12px;
+      color: #ffd8d8;
+      border: 1px solid rgba(255, 112, 112, .4);
+      background: rgba(255, 112, 112, .1);
+    }
+
+    .help {
+      margin: 18px 0 0;
+      color: var(--muted);
+      text-align: center;
+      font-size: .8rem;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="login-card">
+    <div class="logo">SZ</div>
+
+    <h1>Content Manager</h1>
+
+    <p class="subtitle">
+      Manage missing Stream Zone episode information.
+    </p>
+
+    {% if config_missing %}
+      <div class="message">
+        STREAM_ZONE_ADMIN_PASSWORD is missing
+        from your .env file.
+      </div>
+    {% endif %}
+
+    {% if error %}
+      <div class="message">
+        {{ error }}
+      </div>
+    {% endif %}
+
+    <form method="post" autocomplete="off">
+      <input
+        type="hidden"
+        name="csrf_token"
+        value="{{ csrf_token }}"
+      >
+
+      <label for="password">
+        Admin password
+      </label>
+
+      <input
+        id="password"
+        name="password"
+        type="password"
+        required
+        autofocus
+        {% if config_missing %}disabled{% endif %}
+      >
+
+      <button
+        type="submit"
+        {% if config_missing %}disabled{% endif %}
+      >
+        Open Content Manager
+      </button>
+    </form>
+
+    <p class="help">
+      Use the manager locally, then commit the updated
+      json/data.json file.
+    </p>
+  </main>
+</body>
+</html>
